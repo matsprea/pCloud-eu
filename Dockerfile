@@ -1,6 +1,6 @@
 FROM ubuntu:20.04 as builder
  
-RUN apt-get update \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && apt-get install -y --no-install-recommends \
        cmake \
        g++ \
