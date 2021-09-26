@@ -1,6 +1,6 @@
 FROM debian:bullseye as builder
  
-RUN DEBIAN_FRONTEND=noninteractive apt-get update \
+RUN apt-get update \
     && apt-get install -y --no-install-recommends \
        cmake \
        g++ \
@@ -13,6 +13,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
        make \
        zlib1g-dev \
     && cd /usr/src \
+    && git config --global http.sslVerify false \
     && git clone -b fix/support-eu-servers https://github.com/matsprea/console-client.git \
     && cd console-client/pCloudCC \
     && cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr . \
@@ -20,7 +21,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
 
 FROM debian:bullseye
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update \
+RUN apt-get update \
     && apt-get install -y --no-install-recommends \
        fuse \
        lsb-release \
