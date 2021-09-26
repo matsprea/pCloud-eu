@@ -20,7 +20,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
 
 FROM ubuntu:20.04
 
-RUN apt-get update \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && apt-get install -y --no-install-recommends \
        fuse \
        lsb-release \
