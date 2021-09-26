@@ -13,7 +13,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
        make \
        zlib1g-dev \
     && cd /usr/src \
-    && git clone -b fix/support-eu-servers https://github.com/matsprea/console-client.gitt \
+    && git clone -b fix/support-eu-servers https://github.com/matsprea/console-client.git \
     && cd console-client/pCloudCC \
     && cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr . \
     && make pclsync mbedtls install/strip
