@@ -1,3 +1,5 @@
+[![Docker](https://github.com/matsprea/pcloud-eu/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/matsprea/pcloud-eu/actions/workflows/docker-publish.yml)
+
 # Run pCloud storage client in a Docker container
 
 This Docker container allow you to run mount your pCloud storage and support the EU region.  Learn more about pCloud: <https://www.pcloud.com/>
