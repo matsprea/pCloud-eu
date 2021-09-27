@@ -1,7 +1,6 @@
-FROM debian:bullseye as builder
+FROM bitnami/minideb:latest as builder
  
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
+RUN install_packages \
        cmake \
        g++ \
        git \
@@ -19,17 +18,18 @@ RUN apt-get update \
     && cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr . \
     && make pclsync mbedtls install/strip
 
-FROM debian:bullseye
+FROM bitnami/minideb:latest
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
+RUN install_packages \
+       expect \
        fuse \
-       lsb-release \
-    && rm -rf /var/lib/apt/lists/*
+       lsb-release
 
 COPY --from=builder /usr/bin/pcloudcc /usr/bin/pcloudcc
 COPY --from=builder /usr/lib/libpcloudcc_lib.so /usr/lib/libpcloudcc_lib.so
 
+COPY pcloudcc_start.exp /usr/bin/
+
 STOPSIGNAL SIGKILL
 
-CMD [ "pcloudcc" ]
+CMD [ "pcloudcc_start.exp" ]
