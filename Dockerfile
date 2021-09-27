@@ -28,7 +28,7 @@ RUN install_packages \
 COPY --from=builder /usr/bin/pcloudcc /usr/bin/pcloudcc
 COPY --from=builder /usr/lib/libpcloudcc_lib.so /usr/lib/libpcloudcc_lib.so
 
-COPY pcloudcc_start.exp /usr/bin/
+COPY --chmod=0755 pcloudcc_start.exp /usr/bin/
 
 STOPSIGNAL SIGKILL
 
