@@ -18,9 +18,9 @@ docker run -it \
      -v pcloud-dir:/root/.pcloud:shared \
      --name pcloud-eu \
      -e PCLOUD_REGION_EU=true \
-     -e PCLOUD_USERNAME=true \
-     -e PCLOUD_PASSWORD=true \
-     -e PCLOUD_MOUNT=true \
+     -e PCLOUD_USERNAME=youremail@example.com \
+     -e PCLOUD_PASSWORD=securecloudpassword \
+     -e PCLOUD_MOUNT=pcloud-dir \
      ghcr.io/matsprea/pcloud-eu:main 
 ```
 
