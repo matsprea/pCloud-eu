@@ -1,13 +1,12 @@
-[![Docker](https://github.com/matsprea/pcloud-eu/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/matsprea/pcloud-eu/actions/workflows/docker-publish.yml)
-
 # Run pCloud storage client in a Docker container
+[![Create and publish a Docker image](https://github.com/matsprea/pcloud-eu/actions/workflows/release-docker-image.yml/badge.svg)](https://github.com/matsprea/pcloud-eu/actions/workflows/release-docker-image.yml)
 
 This Docker container allow you to run mount your pCloud storage and support the EU region.  Learn more about pCloud: <https://www.pcloud.com/>
 
 ## Pull image
 
 ```sh
-docker pull ghcr.io/matsprea/pcloud-eu:main
+docker pull ghcr.io/matsprea/pcloud-eu
 ```
 
 ## Running the container
